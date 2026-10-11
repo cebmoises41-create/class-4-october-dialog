@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es" translate="no" class="notranslate">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<meta name="robots" content="notranslate">
+<title>Clase 4 — Diálogos con Present Perfect</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #1a202c;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    padding: 30px 40px;
+  }
+  h1 { text-align: center; color: #2b6cb0; font-size: 1.8rem; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #718096; font-size: 1rem; margin-bottom: 25px; }
+
+  /* LOGIN */
+  #loginScreen { text-align: center; padding: 40px 20px; }
+  #loginScreen h2 { color: #2b6cb0; margin-bottom: 15px; }
+  #loginScreen p { color: #4a5568; margin-bottom: 20px; }
+  #accessInput {
+    font-size: 2rem; text-align: center; letter-spacing: 12px;
+    width: 220px; padding: 12px; border: 3px solid #cbd5e0;
+    border-radius: 12px; outline: none; transition: border 0.3s;
+  }
+  #accessInput:focus { border-color: #2b6cb0; }
+  #loginBtn {
+    display: block; margin: 20px auto 0; padding: 14px 50px;
+    font-size: 1.1rem; background: #2b6cb0; color: white;
+    border: none; border-radius: 12px; cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+  }
+  #loginBtn:hover { background: #2c5282; transform: scale(1.02); }
+  #loginError { color: #e53e3e; margin-top: 15px; font-weight: 600; display: none; }
+
+  /* INSTRUCCIONES */
+  .instructions-box {
+    background: #fefcbf; border-left: 6px solid #d69e2e;
+    padding: 18px 22px; border-radius: 10px; margin-bottom: 25px;
+    color: #744210; font-size: 0.98rem;
+  }
+  .instructions-box strong { color: #975a16; }
+  .instructions-box ul { margin: 8px 0 0 20px; }
+  .instructions-box li { margin-bottom: 6px; }
+
+  #mainContent { display: none; }
+
+  /* TABS */
+  .tabs {
+    display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: wrap;
+    border-bottom: 3px solid #e2e8f0; padding-bottom: 10px;
+  }
+  .tab-btn {
+    padding: 10px 16px; font-size: 0.92rem; font-weight: 600;
+    background: #edf2f7; color: #4a5568; border: none;
+    border-radius: 10px; cursor: pointer; transition: all 0.3s;
+  }
+  .tab-btn:hover { background: #bee3f8; color: #2c5282; }
+  .tab-btn.active { background: #2b6cb0; color: white; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* SECTION */
+  .section-box {
+    background: #f7fafc; border: 2px solid #e2e8f0;
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 25px;
+  }
+  .section-box h2 {
+    color: #2b6cb0; font-size: 1.2rem; margin-bottom: 12px;
+    border-bottom: 2px dashed #bee3f8; padding-bottom: 8px;
+  }
+  .instruction { color: #4a5568; margin-bottom: 12px; font-size: 0.98rem; }
+
+  .grammar-tip {
+    background: #ebf8ff; border-left: 5px solid #4299e1;
+    padding: 12px 16px; border-radius: 8px; margin-bottom: 15px;
+    color: #2c5282; font-size: 0.95rem;
+  }
+
+  .note-box {
+    background: #fffaf0; border-left: 5px solid #ed8936;
+    padding: 12px 16px; border-radius: 8px; margin-bottom: 15px;
+    color: #7b341e; font-size: 0.95rem;
+  }
+  .note-box strong { color: #c05621; }
+
+  /* DIÁLOGO */
+  .dialogue-title {
+    text-align: center; color: #2b6cb0; font-weight: 700;
+    font-size: 1.05rem; margin-bottom: 15px;
+    padding: 8px; background: #ebf8ff; border-radius: 8px;
+  }
+  .dialogue-box {
+    background: #ffffff; border-radius: 12px; padding: 18px;
+    border: 1px solid #e2e8f0;
+  }
+  .line {
+    display: flex; gap: 10px; margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .speaker {
+    flex-shrink: 0; min-width: 42px; height: 42px;
+    background: #2b6cb0; color: white;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem;
+  }
+  .speaker.b { background: #38a169; }
+  .speaker.c { background: #ed8936; }
+  .bubble {
+    flex: 1; background: #f7fafc; padding: 10px 14px;
+    border-radius: 12px; font-size: 1rem; line-height: 1.7;
+    border: 1px solid #e2e8f0;
+  }
+  .bubble input.blank-input {
+    display: inline-block; width: 130px;
+    border: none; border-bottom: 2px solid #4299e1;
+    background: transparent; font-family: inherit;
+    font-size: 1rem; color: #2b6cb0; font-weight: 700;
+    outline: none; text-align: center;
+    padding: 2px 4px; margin: 0 4px;
+    transition: border 0.2s;
+  }
+  .bubble input.blank-input:focus { border-color: #2b6cb0; background: #ebf8ff; }
+  .bubble input.blank-input.correct { border-color: #38a169; color: #2f855a; background: #f0fff4; }
+  .bubble input.blank-input.wrong { border-color: #e53e3e; color: #c53030; background: #fff5f5; }
+  .bubble input.blank-input.wide { width: 180px; }
+
+  .check-btn {
+    background: #ed8936; color: white; border: none;
+    padding: 8px 18px; border-radius: 8px; cursor: pointer;
+    font-weight: 600; font-size: 0.9rem; margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .check-btn:hover { background: #dd6b20; }
+  .check-btn:disabled { background: #a0aec0; cursor: not-allowed; }
+
+  .feedback {
+    margin-top: 10px; font-weight: 600; font-size: 0.95rem;
+    min-height: 22px; text-align: center;
+  }
+  .feedback.ok { color: #2f855a; }
+  .feedback.bad { color: #c53030; }
+
+  .audio-btn {
+    background: #4299e1; color: white; border: none;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600; margin: 6px 6px 12px 0;
+    transition: background 0.3s;
+  }
+  .audio-btn:hover { background: #3182ce; }
+  .audio-btn:disabled { background: #a0aec0; cursor: not-allowed; }
+
+  .audio-bar {
+    text-align: center; margin-bottom: 15px;
+  }
+
+  /* BTN */
+  .btn {
+    display: inline-block; padding: 12px 35px; font-size: 1rem;
+    border: none; border-radius: 10px; cursor: pointer;
+    transition: background 0.3s, transform 0.1s; font-weight: 600;
+  }
+  .btn-primary { background: #2b6cb0; color: white; }
+  .btn-primary:hover { background: #2c5282; transform: scale(1.02); }
+  .btn-success { background: #38a169; color: white; }
+  .btn-success:hover { background: #2f855a; transform: scale(1.02); }
+  .btn-center { text-align: center; margin: 25px 0 10px; }
+
+  /* RESULTS */
+  #resultsScreen { display: none; text-align: center; padding: 30px 20px; }
+  #resultsScreen h2 { color: #2b6cb0; margin-bottom: 15px; }
+  .score-box {
+    background: #ebf8ff; border-radius: 14px; padding: 25px;
+    margin: 20px auto; max-width: 600px; text-align: left;
+  }
+  .score-item {
+    display: flex; justify-content: space-between; padding: 8px 0;
+    border-bottom: 1px solid #bee3f8; font-size: 1.02rem;
+  }
+  .score-item:last-child { border-bottom: none; font-weight: 700; color: #2b6cb0; font-size: 1.12rem; }
+  .feedback-final { margin-top: 15px; font-weight: 600; font-size: 1.1rem; text-align: center; }
+
+  @media (max-width: 600px) {
+    .container { padding: 20px 16px; }
+    h1 { font-size: 1.35rem; }
+    .tab-btn { font-size: 0.78rem; padding: 8px 10px; }
+    .section-box { padding: 16px; }
+    .bubble input.blank-input { width: 100px; }
+    .bubble input.blank-input.wide { width: 130px; }
+  }
+</style>
+</head>
+<body translate="no" class="notranslate">
+
+<div class="container" translate="no">
+
+  <!-- ============ LOGIN ============ -->
+  <div id="loginScreen">
+    <h1>🔐 Clase 4 — Diálogos con Present Perfect</h1>
+    <p class="subtitle">4 Diálogos · Complete the missing words</p>
+    <p>Ingresa el código de acceso de 4 dígitos:</p>
+    <input type="password" id="accessInput" maxlength="4" inputmode="numeric" placeholder="••••">
+    <button id="loginBtn" onclick="checkAccess()">ENTRAR</button>
+    <p id="loginError">❌ Código incorrecto. Intenta de nuevo.</p>
+  </div>
+
+  <!-- ============ MAIN ============ -->
+  <div id="mainContent">
+
+    <div class="instructions-box">
+      📝 <strong>INSTRUCCIONES IMPORTANTES:</strong>
+      <ul>
+        <li><strong>Todos los alumnos deben contestar</strong> los 4 diálogos.</li>
+        <li><strong>Solo UNO</strong> de ustedes <strong>escribe el diálogo completo en el cuaderno con tinta azul</strong>.</li>
+        <li>Ese mismo alumno <strong>pasa al frente</strong> y <strong>lee el diálogo en voz alta</strong> con sus compañeros.</li>
+        <li>Anota la <strong>fecha</strong> y tu <strong>nombre</strong> antes de comenzar.</li>
+        <li>Cada diálogo tiene palabras o verbos faltantes: <strong>complétalos con la forma correcta del Present Perfect</strong>.</li>
+        <li>Usa <em>have / has + past participle</em> según el sujeto.</li>
+        <li>Al terminar, presiona <strong>"VER RESULTADOS"</strong>.</li>
+      </ul>
+    </div>
+
+    <h1>💬 CLASE 4 — DIÁLOGOS CON PRESENT PERFECT</h1>
+    <p class="subtitle">Complete the dialogues with the missing words</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(1, this)">💬 Diálogo 1 (2 personas)</button>
+      <button class="tab-btn" onclick="switchTab(2, this)">💬 Diálogo 2 (2 personas)</button>
+      <button class="tab-btn" onclick="switchTab(3, this)">💬 Diálogo 3 (3 personas)</button>
+      <button class="tab-btn" onclick="switchTab(4, this)">💬 Diálogo 4 (3 personas)</button>
+    </div>
+
+    <!-- ============ DIÁLOGO 1 ============ -->
+    <div id="tab1" class="tab-content active">
+      <div class="section-box">
+        <h2>💬 DIÁLOGO 1 — Two people (A & B)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (14 participaciones)</p>
+        <div class="grammar-tip">
+          💡 <strong>Grammar Tip:</strong> <em>have / has + past participle</em> · Question: <em>Have/Has + S + past participle?</em>
+        </div>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(1)">🔊 Escuchar el diálogo completo</button>
+        </div>
+        <div class="dialogue-title">Dialogue 1 — Talking about travel experiences</div>
+        <div class="dialogue-box" id="dialogue1"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(1)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb1"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DIÁLOGO 2 ============ -->
+    <div id="tab2" class="tab-content">
+      <div class="section-box">
+        <h2>💬 DIÁLOGO 2 — Two people (A & B)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (14 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(2)">🔊 Escuchar el diálogo completo</button>
+        </div>
+        <div class="dialogue-title">Dialogue 2 — Talking about school and homework</div>
+        <div class="dialogue-box" id="dialogue2"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(2)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DIÁLOGO 3 ============ -->
+    <div id="tab3" class="tab-content">
+      <div class="section-box">
+        <h2>💬 DIÁLOGO 3 — Three people (A, B & C)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (18 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(3)">🔊 Escuchar el diálogo completo</button>
+        </div>
+        <div class="dialogue-title">Dialogue 3 — Talking about food and restaurants</div>
+        <div class="dialogue-box" id="dialogue3"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(3)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DIÁLOGO 4 ============ -->
+    <div id="tab4" class="tab-content">
+      <div class="section-box">
+        <h2>💬 DIÁLOGO 4 — Three people (A, B & C)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (18 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(4)">🔊 Escuchar el diálogo completo</button>
+        </div>
+        <div class="dialogue-title">Dialogue 4 — Talking about movies and plans</div>
+        <div class="dialogue-box" id="dialogue4"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(4)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-center">
+      <button class="btn btn-success" onclick="showResults()">✅ VER RESULTADOS</button>
+    </div>
+
+  </div>
+
+  <!-- ============ RESULTADOS ============ -->
+  <div id="resultsScreen">
+    <h2>🏆 Resultados — Clase 4</h2>
+    <div class="score-box" id="scoreBox"></div>
+    <div class="btn-center">
+      <button class="btn btn-primary" onclick="location.reload()">🔄 Volver al inicio</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ============ ACCESO ============ */
+const ACCESS_CODE = "3223";
+let attempts = 0;
+
+function checkAccess() {
+  const input = document.getElementById('accessInput').value.trim();
+  const error = document.getElementById('loginError');
+  if (input === ACCESS_CODE) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  } else {
+    attempts++;
+    error.style.display = 'block';
+    error.textContent = `❌ Código incorrecto. Intento ${attempts}. Intenta de nuevo.`;
+    document.getElementById('accessInput').value = '';
+    document.getElementById('accessInput').focus();
+  }
+}
+document.getElementById('accessInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkAccess();
+});
+
+/* ============ TABS ============ */
+function switchTab(num, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab' + num).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ============ SPEECH ============ */
+function speak(text, btnElement, lang = 'en-US') {
+  if (!('speechSynthesis' in window)) {
+    alert('Tu navegador no soporta síntesis de voz. Usa Chrome, Edge o Safari.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = lang;
+  utter.rate = 0.85;
+  const voices = window.speechSynthesis.getVoices();
+  const v = voices.find(x => x.lang && x.lang.toLowerCase().startsWith(lang.slice(0,2).toLowerCase()));
+  if (v) utter.voice = v;
+  if (btnElement) {
+    btnElement.disabled = true;
+    const original = btnElement.textContent;
+    utter.onend = () => { btnElement.disabled = false; btnElement.textContent = original; };
+  }
+  window.speechSynthesis.speak(utter);
+}
+if ('speechSynthesis' in window) { window.speechSynthesis.getVoices(); }
+
+/* ============ UTIL ============ */
+function normalize(str) {
+  return (str || '').toLowerCase().trim()
+    .replace(/[.,!?;:¿¡"']/g, '')
+    .replace(/\s+/g, ' ');
+}
+
+/* =====================================================================
+   DATOS DE LOS 4 DIÁLOGOS
+   Cada línea: { speaker: 'A'|'B'|'C', text: "..." } con {{blanks}}
+   blanks = [{ id, answer, width }]
+   ===================================================================== */
+
+const DIALOGUES = {
+  1: {
+    lines: [
+      { speaker: 'A', text: 'Hi! I {{b1}} (not / see) you for a long time. How are you?',
+        blanks: [{ id: 'b1', answer: "haven't seen", width: 'wide' }] },
+      { speaker: 'B', text: 'I\'m great! I {{b2}} (just / come) back from a trip to Mexico.',
+        blanks: [{ id: 'b2', answer: "have just come", width: 'wide' }] },
+      { speaker: 'A', text: 'Wow! {{b3}} you {{b4}} (ever / be) to Mexico City?',
+        blanks: [{ id: 'b3', answer: "Have" }, { id: 'b4', answer: "ever been", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b5}} (visit) Mexico City three times.',
+        blanks: [{ id: 'b5', answer: "have visited", width: 'wide' }] },
+      { speaker: 'A', text: 'Lucky you! I {{b6}} (never / travel) outside my country.',
+        blanks: [{ id: 'b6', answer: "have never traveled", width: 'wide' }] },
+      { speaker: 'B', text: 'Really? You should go! {{b7}} you {{b8}} (ever / try) Mexican food?',
+        blanks: [{ id: 'b7', answer: "Have" }, { id: 'b8', answer: "ever tried", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes! I {{b9}} (eat) tacos many times. They are delicious!',
+        blanks: [{ id: 'b9', answer: "have eaten", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! And {{b10}} you {{b11}} (ever / see) the pyramids?',
+        blanks: [{ id: 'b10', answer: "have" }, { id: 'b11', answer: "ever seen", width: 'wide' }] },
+      { speaker: 'A', text: 'No, I {{b12}} (not / see) them yet, but I want to.',
+        blanks: [{ id: 'b12', answer: "haven't seen", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b13}} (already / take) hundreds of photos. I can show you!',
+        blanks: [{ id: 'b13', answer: "have already taken", width: 'wide' }] },
+      { speaker: 'A', text: 'That sounds amazing! {{b14}} you {{b15}} (buy) any souvenirs?',
+        blanks: [{ id: 'b14', answer: "Have" }, { id: 'b15', answer: "bought", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b16}} (buy) a beautiful hat for my mother.',
+        blanks: [{ id: 'b16', answer: "have bought", width: 'wide' }] },
+      { speaker: 'A', text: 'You {{b17}} (be) very busy! Thanks for telling me.',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'You\'re welcome! We {{b18}} (have) a great conversation.',
+        blanks: [{ id: 'b18', answer: "have had", width: 'wide' }] }
+    ],
+    audio: "A: Hi! I haven't seen you for a long time. How are you? B: I'm great! I have just come back from a trip to Mexico. A: Wow! Have you ever been to Mexico City? B: Yes, I have visited Mexico City three times. A: Lucky you! I have never traveled outside my country. B: Really? You should go! Have you ever tried Mexican food? A: Yes! I have eaten tacos many times. They are delicious! B: Great! And have you ever seen the pyramids? A: No, I haven't seen them yet, but I want to. B: I have already taken hundreds of photos. I can show you! A: That sounds amazing! Have you bought any souvenirs? B: Yes, I have bought a beautiful hat for my mother. A: You have been very busy! Thanks for telling me. B: You're welcome! We have had a great conversation."
+  },
+
+  2: {
+    lines: [
+      { speaker: 'A', text: 'Hi! {{b1}} you {{b2}} (finish) your English homework?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "finished", width: 'wide' }] },
+      { speaker: 'B', text: 'Not yet. I {{b3}} (not / start) it. I\'ve been very busy.',
+        blanks: [{ id: 'b3', answer: "haven't started", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? I {{b4}} (already / do) all my exercises.',
+        blanks: [{ id: 'b4', answer: "have already done", width: 'wide' }] },
+      { speaker: 'B', text: 'Wow, you\'re fast! {{b5}} you {{b6}} (read) the new chapter?',
+        blanks: [{ id: 'b5', answer: "Have" }, { id: 'b6', answer: "read", width: 'normal' }] },
+      { speaker: 'A', text: 'Yes, I {{b7}} (read) it twice. It\'s very interesting.',
+        blanks: [{ id: 'b7', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (not / have) time to read it yet.',
+        blanks: [{ id: 'b8', answer: "haven't had", width: 'wide' }] },
+      { speaker: 'A', text: 'Don\'t worry. {{b9}} she {{b10}} (give) us more time?',
+        blanks: [{ id: 'b9', answer: "Has" }, { id: 'b10', answer: "given", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, she {{b11}} (extend) the deadline until Friday.',
+        blanks: [{ id: 'b11', answer: "has extended", width: 'wide' }] },
+      { speaker: 'A', text: 'Perfect! I {{b12}} (just / write) my essay too.',
+        blanks: [{ id: 'b12', answer: "have just written", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! {{b13}} you {{b14}} (check) the grammar?',
+        blanks: [{ id: 'b13', answer: "Have" }, { id: 'b14', answer: "checked", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes, I {{b15}} (correct) all my mistakes.',
+        blanks: [{ id: 'b15', answer: "have corrected", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b16}} (never / see) someone so organized!',
+        blanks: [{ id: 'b16', answer: "have never seen", width: 'wide' }] },
+      { speaker: 'A', text: 'Thanks! We {{b17}} (be) friends for many years, right?',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes! And we {{b18}} (always / help) each other with homework.',
+        blanks: [{ id: 'b18', answer: "have always helped", width: 'wide' }] }
+    ],
+    audio: "A: Hi! Have you finished your English homework? B: Not yet. I haven't started it. I've been very busy. A: Really? I have already done all my exercises. B: Wow, you're fast! Have you read the new chapter? A: Yes, I have read it twice. It's very interesting. B: I haven't had time to read it yet. A: Don't worry. Has she given us more time? B: Yes, she has extended the deadline until Friday. A: Perfect! I have just written my essay too. B: Great! Have you checked the grammar? A: Yes, I have corrected all my mistakes. B: I have never seen someone so organized! A: Thanks! We have been friends for many years, right? B: Yes! And we have always helped each other with homework."
+  },
+
+  3: {
+    lines: [
+      { speaker: 'A', text: 'Hi everyone! {{b1}} you {{b2}} (try) the new restaurant downtown?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "tried", width: 'wide' }] },
+      { speaker: 'B', text: 'No, I {{b3}} (not / go) there yet. Is it good?',
+        blanks: [{ id: 'b3', answer: "haven't gone", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes! I {{b4}} (already / eat) there twice. The food is amazing.',
+        blanks: [{ id: 'b4', answer: "have already eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? What {{b5}} you {{b6}} (order)?',
+        blanks: [{ id: 'b5', answer: "have" }, { id: 'b6', answer: "ordered", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b7}} (try) the seafood pasta. It\'s delicious!',
+        blanks: [{ id: 'b7', answer: "have tried", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (never / eat) seafood. I\'m a little scared.',
+        blanks: [{ id: 'b8', answer: "have never eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Don\'t worry! I {{b9}} (have) seafood many times. It\'s safe.',
+        blanks: [{ id: 'b9', answer: "have had", width: 'wide' }] },
+      { speaker: 'C', text: '{{b10}} you {{b11}} (ever / try) Italian food?',
+        blanks: [{ id: 'b10', answer: "Have" }, { id: 'b11', answer: "ever tried", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b12}} (eat) pizza and lasagna before.',
+        blanks: [{ id: 'b12', answer: "have eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Then you\'ll love this place. The chef {{b13}} (win) many awards.',
+        blanks: [{ id: 'b13', answer: "has won", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes! I {{b14}} (read) about him in a magazine.',
+        blanks: [{ id: 'b14', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'Okay, I\'ll go! {{b15}} they {{b16}} (open) a new location?',
+        blanks: [{ id: 'b15', answer: "Have" }, { id: 'b16', answer: "opened", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes, they {{b17}} (just / open) one near the park.',
+        blanks: [{ id: 'b17', answer: "have just opened", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b18}} (not / visit) the new one yet, but I will soon.',
+        blanks: [{ id: 'b18', answer: "haven't visited", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! Let\'s go together this weekend.',
+        blanks: [] },
+      { speaker: 'A', text: 'Perfect! I {{b19}} (already / tell) my sister about it too.',
+        blanks: [{ id: 'b19', answer: "have already told", width: 'wide' }] },
+      { speaker: 'C', text: 'Wonderful! We {{b20}} (not / have) this much fun in a long time!',
+        blanks: [{ id: 'b20', answer: "haven't had", width: 'wide' }] }
+    ],
+    audio: "A: Hi everyone! Have you tried the new restaurant downtown? B: No, I haven't gone there yet. Is it good? C: Yes! I have already eaten there twice. The food is amazing. A: Really? What have you ordered? C: I have tried the seafood pasta. It's delicious! B: I have never eaten seafood. I'm a little scared. A: Don't worry! I have had seafood many times. It's safe. C: Have you ever tried Italian food? B: Yes, I have eaten pizza and lasagna before. A: Then you'll love this place. The chef has won many awards. C: Yes! I have read about him in a magazine. B: Okay, I'll go! Have they opened a new location? A: Yes, they have just opened one near the park. C: I haven't visited the new one yet, but I will soon. B: Great! Let's go together this weekend. A: Perfect! I have already told my sister about it too. C: Wonderful! We haven't had this much fun in a long time!"
+  },
+
+  4: {
+    lines: [
+      { speaker: 'A', text: 'Hey! {{b1}} you {{b2}} (see) the new superhero movie?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "seen", width: 'wide' }] },
+      { speaker: 'B', text: 'Not yet. I {{b3}} (not / have) time this week.',
+        blanks: [{ id: 'b3', answer: "haven't had", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b4}} (already / watch) it twice! It\'s fantastic.',
+        blanks: [{ id: 'b4', answer: "have already watched", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? {{b5}} you {{b6}} (ever / see) the first one?',
+        blanks: [{ id: 'b5', answer: "Have" }, { id: 'b6', answer: "ever seen", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes, I {{b7}} (watch) it many times. It\'s my favorite.',
+        blanks: [{ id: 'b7', answer: "have watched", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (never / watch) any superhero movie.',
+        blanks: [{ id: 'b8', answer: "have never watched", width: 'wide' }] },
+      { speaker: 'A', text: 'No way! You {{b9}} (miss) so much!',
+        blanks: [{ id: 'b9', answer: "have missed", width: 'wide' }] },
+      { speaker: 'B', text: 'I know. {{b10}} the director {{b11}} (make) other movies?',
+        blanks: [{ id: 'b10', answer: "Has" }, { id: 'b11', answer: "made", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes, he {{b12}} (direct) three other action films.',
+        blanks: [{ id: 'b12', answer: "has directed", width: 'wide' }] },
+      { speaker: 'A', text: 'I {{b13}} (read) great reviews about all of them.',
+        blanks: [{ id: 'b13', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'Okay, I\'ll watch the first one tonight. {{b14}} you {{b15}} (buy) the tickets yet?',
+        blanks: [{ id: 'b14', answer: "Have" }, { id: 'b15', answer: "bought", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b16}} (already / buy) three tickets for Friday!',
+        blanks: [{ id: 'b16', answer: "have already bought", width: 'wide' }] },
+      { speaker: 'A', text: 'Perfect! We {{b17}} (be) friends for years and never gone to the movies together.',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'You\'re right! I {{b18}} (not / feel) this excited in a long time.',
+        blanks: [{ id: 'b18', answer: "haven't felt", width: 'wide' }] },
+      { speaker: 'C', text: 'Me too! We {{b19}} (already / plan) the whole evening.',
+        blanks: [{ id: 'b19', answer: "have already planned", width: 'wide' }] },
+      { speaker: 'A', text: 'Great! Let\'s meet at 7. I {{b20}} (just / charge) my phone.',
+        blanks: [{ id: 'b20', answer: "have just charged", width: 'wide' }] }
+    ],
+    audio: "A: Hey! Have you seen the new superhero movie? B: Not yet. I haven't had time this week. C: I have already watched it twice! It's fantastic. A: Really? Have you ever seen the first one? C: Yes, I have watched it many times. It's my favorite. B: I have never watched any superhero movie. A: No way! You have missed so much! B: I know. Has the director made other movies? C: Yes, he has directed three other action films. A: I have read great reviews about all of them. B: Okay, I'll watch the first one tonight. Have you bought the tickets yet? C: I have already bought three tickets for Friday! A: Perfect! We have been friends for years and never gone to the movies together. B: You're right! I haven't felt this excited in a long time. C: Me too! We have already planned the whole evening. A: Great! Let's meet at 7. I have just charged my phone."
+  }
+};
+
+/* =====================================================================
+   RENDER DE DIÁLOGOS
+   ===================================================================== */
+function renderDialogue(num) {
+  const d = DIALOGUES[num];
+  const box = document.getElementById('dialogue' + num);
+  let html = '';
+  d.lines.forEach((line, li) => {
+    let text = line.text;
+    line.blanks.forEach(b => {
+      const widthClass = b.width === 'wide' ? 'wide' : '';
+      text = text.replace(
+        `{{${b.id}}}`,
+        `<input type="text" class="blank-input ${widthClass}"
+                id="d${num}_${b.id}" data-answer="${b.answer}"
+                autocomplete="off" autocorrect="off" autocapitalize="off"
+                spellcheck="false" translate="no" lang="en">`
+      );
+    });
+    const speakerClass = line.speaker === 'A' ? '' : line.speaker === 'B' ? 'b' : 'c';
+    html += `
+      <div class="line">
+        <div class="speaker ${speakerClass}">${line.speaker})</div>
+        <div class="bubble">${text}</div>
+      </div>
+    `;
+  });
+  box.innerHTML = html;
+}
+
+/* =====================================================================
+   VERIFICAR UN DIÁLOGO
+   ===================================================================== */
+function checkDialogue(num) {
+  const d = DIALOGUES[num];
+  let correct = 0;
+  let total = 0;
+
+  d.lines.forEach(line => {
+    line.blanks.forEach(b => {
+      total++;
+      const input = document.getElementById(`d${num}_${b.id}`);
+      if (!input) return;
+      if (normalize(input.value) === normalize(b.answer)) {
+        input.classList.add('correct');
+        input.classList.remove('wrong');
+        correct++;
+      } else {
+        input.classList.add('wrong');
+        input.classList.remove('correct');
+      }
+    });
+  });
+
+  const fb = document.getElementById('fb' + num);
+  const pct = Math.round((correct / total) * 100);
+  if (pct === 100) {
+    fb.textContent = `✅ ¡Excelente! ${correct}/${total} correctas.`;
+    fb.className = 'feedback ok';
+  } else if (pct >= 60) {
+    fb.textContent = `👍 Bien: ${correct}/${total} correctas. Revisa las rojas.`;
+    fb.className = 'feedback ok';
+  } else {
+    fb.textContent = `❌ ${correct}/${total} correctas. Revisa las respuestas en rojo.`;
+    fb.className = 'feedback bad';
+  }
+}
+
+/* =====================================================================
+   AUDIO DEL DIÁLOGO COMPLETO
+   ===================================================================== */
+function speakDialogue(num) {
+  const d = DIALOGUES[num];
+  speak(d.audio, event.target, 'en-US');
+}
+
+/* =====================================================================
+   RESULTADOS FINALES
+   ===================================================================== */
+function showResults() {
+  let grandCorrect = 0;
+  let grandTotal = 0;
+  const perDialogue = {};
+
+  for (let num = 1; num <= 4; num++) {
+    const d = DIALOGUES[num];
+    let correct = 0, total = 0;
+    d.lines.forEach(line => {
+      line.blanks.forEach(b => {
+        total++;
+        const input = document.getElementById(`d${num}_${b.id}`);
+        if (input && normalize(input.value) === normalize(b.answer)) correct++;
+      });
+    });
+    perDialogue[num] = { correct, total };
+    grandCorrect += correct;
+    grandTotal += total;
+  }
+
+  const pct = grandTotal > 0 ? Math.round((grandCorrect / grandTotal) * 100) : 0;
+
+  let msg = '';
+  if (pct >= 90) msg = '🏆 Outstanding! You have mastered the Present Perfect.';
+  else if (pct >= 75) msg = '🌟 Great job! Keep practicing.';
+  else if (pct >= 60) msg = '👍 Good. Review have/has + past participle.';
+  else msg = '📚 Keep practicing. Review the Present Perfect structure.';
+
+  document.getElementById('scoreBox').innerHTML = `
+    <div class="score-item"><span>💬 Diálogo 1 (A & B)</span><span>${perDialogue[1].correct} / ${perDialogue[1].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 2 (A & B)</span><span>${perDialogue[2].correct} / ${perDialogue[2].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 3 (A, B & C)</span><span>${perDialogue[3].correct} / ${perDialogue[3].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 4 (A, B & C)</span><span>${perDialogue[4].correct} / ${perDialogue[4].total}</span></div>
+    <div class="score-item"><span>TOTAL</span><span>${grandCorrect} / ${grandTotal} (${pct}%)</span></div>
+    <div class="feedback-final">${msg}</div>
+    <p style="margin-top:12px; color:#718096; font-size:0.9rem; text-align:center;">
+      ⚠️ Recuerda: solo UNO escribe el diálogo en el cuaderno con tinta azul y pasa al frente a leerlo.
+    </p>
+  `;
+
+  document.getElementById('mainContent').style.display = 'none';
+  document.getElementById('resultsScreen').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ============ INIT ============ */
+renderDialogue(1);
+renderDialogue(2);
+renderDialogue(3);
+renderDialogue(4);
+
+/* ============ PREVENIR TRADUCCIÓN ============ */
+document.documentElement.setAttribute('translate', 'no');
+document.documentElement.classList.add('notranslate');
+document.body.setAttribute('translate', 'no');
+document.body.classList.add('notranslate');
+</script>
+
+</body>
+</html>
