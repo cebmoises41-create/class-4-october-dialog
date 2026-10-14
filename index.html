@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
 <meta name="robots" content="notranslate">
-<title>Sesión 4 — Present Perfect (3er Semestre)</title>
+<title>Clase 5 — Diálogos con Present Perfect</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -45,15 +45,15 @@
   #loginBtn:hover { background: #2c5282; transform: scale(1.02); }
   #loginError { color: #e53e3e; margin-top: 15px; font-weight: 600; display: none; }
 
-  /* BLOGGER NOTICE */
-  .blogger-notice {
+  /* INSTRUCCIONES */
+  .instructions-box {
     background: #fefcbf; border-left: 6px solid #d69e2e;
-    padding: 16px 20px; border-radius: 10px; margin-bottom: 25px;
+    padding: 18px 22px; border-radius: 10px; margin-bottom: 25px;
     color: #744210; font-size: 0.98rem;
   }
-  .blogger-notice strong { color: #975a16; }
-  .blogger-notice ul { margin: 8px 0 0 20px; }
-  .blogger-notice li { margin-bottom: 4px; }
+  .instructions-box strong { color: #975a16; }
+  .instructions-box ul { margin: 8px 0 0 20px; }
+  .instructions-box li { margin-bottom: 6px; }
 
   #mainContent { display: none; }
 
@@ -63,7 +63,7 @@
     border-bottom: 3px solid #e2e8f0; padding-bottom: 10px;
   }
   .tab-btn {
-    padding: 10px 14px; font-size: 0.9rem; font-weight: 600;
+    padding: 10px 16px; font-size: 0.92rem; font-weight: 600;
     background: #edf2f7; color: #4a5568; border: none;
     border-radius: 10px; cursor: pointer; transition: all 0.3s;
   }
@@ -88,105 +88,84 @@
     padding: 12px 16px; border-radius: 8px; margin-bottom: 15px;
     color: #2c5282; font-size: 0.95rem;
   }
-  .grammar-tip strong { color: #2b6cb0; }
 
   .note-box {
     background: #fffaf0; border-left: 5px solid #ed8936;
     padding: 12px 16px; border-radius: 8px; margin-bottom: 15px;
     color: #7b341e; font-size: 0.95rem;
   }
+  .note-box strong { color: #c05621; }
 
-  /* QUESTION */
-  .question {
-    background: #ffffff; border-radius: 10px; padding: 16px 18px;
-    margin-bottom: 14px; border: 1px solid #e2e8f0;
+  /* DIÁLOGO */
+  .dialogue-title {
+    text-align: center; color: #2b6cb0; font-weight: 700;
+    font-size: 1.05rem; margin-bottom: 15px;
+    padding: 8px; background: #ebf8ff; border-radius: 8px;
   }
-  .question .q-num {
-    font-weight: 700; color: #2b6cb0; margin-right: 6px;
+  .dialogue-box {
+    background: #ffffff; border-radius: 12px; padding: 18px;
+    border: 1px solid #e2e8f0;
   }
-  .question .q-prompt {
-    font-size: 1.02rem; color: #2d3748; margin-bottom: 8px;
-    font-weight: 600;
+  .line {
+    display: flex; gap: 10px; margin-bottom: 12px;
+    align-items: flex-start;
   }
-
-  .audio-btn {
-    background: #4299e1; color: white; border: none;
-    padding: 8px 14px; border-radius: 8px; cursor: pointer;
-    font-size: 0.88rem; font-weight: 600; margin: 4px 4px 8px 0;
-    transition: background 0.3s;
+  .speaker {
+    flex-shrink: 0; min-width: 42px; height: 42px;
+    background: #2b6cb0; color: white;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem;
   }
-  .audio-btn:hover { background: #3182ce; }
-  .audio-btn:disabled { background: #a0aec0; cursor: not-allowed; }
-
-  /* OPTIONS */
-  .options { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-  .options label {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 12px; border-radius: 8px; cursor: pointer;
-    background: #f7fafc; border: 1px solid #e2e8f0;
-    transition: background 0.2s, border 0.2s;
-    font-size: 0.98rem;
+  .speaker.b { background: #38a169; }
+  .speaker.c { background: #ed8936; }
+  .bubble {
+    flex: 1; background: #f7fafc; padding: 10px 14px;
+    border-radius: 12px; font-size: 1rem; line-height: 1.7;
+    border: 1px solid #e2e8f0;
   }
-  .options label:hover { background: #ebf8ff; border-color: #bee3f8; }
-  .options input[type="radio"] { accent-color: #2b6cb0; width: 18px; height: 18px; cursor: pointer; }
-
-  /* INPUT (para escribir) */
-  .write-input {
-    width: 100%; padding: 12px 14px; border-radius: 10px;
-    border: 2px solid #cbd5e0; font-size: 1rem; outline: none;
-    font-family: inherit; background: #fff; color: #1a202c;
+  .bubble input.blank-input {
+    display: inline-block; width: 130px;
+    border: none; border-bottom: 2px solid #4299e1;
+    background: transparent; font-family: inherit;
+    font-size: 1rem; color: #2b6cb0; font-weight: 700;
+    outline: none; text-align: center;
+    padding: 2px 4px; margin: 0 4px;
     transition: border 0.2s;
-    margin-top: 6px;
   }
-  .write-input:focus { border-color: #2b6cb0; }
-  .write-input.correct { border-color: #38a169; background: #f0fff4; }
-  .write-input.wrong { border-color: #e53e3e; background: #fff5f5; }
+  .bubble input.blank-input:focus { border-color: #2b6cb0; background: #ebf8ff; }
+  .bubble input.blank-input.correct { border-color: #38a169; color: #2f855a; background: #f0fff4; }
+  .bubble input.blank-input.wrong { border-color: #e53e3e; color: #c53030; background: #fff5f5; }
+  .bubble input.blank-input.wide { width: 180px; }
 
-  /* WORD BANK (ordenar) */
-  .word-bank {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    margin: 10px 0; padding: 10px;
-    background: #edf2f7; border-radius: 10px;
-    min-height: 50px; align-items: center;
-  }
-  .word-chip {
-    background: #2b6cb0; color: white; border: none;
-    padding: 8px 14px; border-radius: 8px;
-    font-size: 0.95rem; font-weight: 600; cursor: pointer;
-    transition: all 0.2s;
-  }
-  .word-chip:hover:not(:disabled) { background: #2c5282; transform: translateY(-2px); }
-  .word-chip:disabled { opacity: 0.3; cursor: not-allowed; }
-  .answer-line {
-    min-height: 50px; padding: 10px 14px;
-    background: #fff; border: 2px dashed #4299e1;
-    border-radius: 10px; display: flex; flex-wrap: wrap; gap: 8px;
-    align-items: center; margin: 8px 0;
-  }
-  .answer-line .placed {
-    background: #38a169; color: white; border: none;
-    padding: 6px 12px; border-radius: 8px; cursor: pointer;
-    font-size: 0.95rem; font-weight: 600;
-  }
-  .answer-line .placed:hover { background: #e53e3e; }
-  .answer-line .placeholder { color: #a0aec0; font-style: italic; font-size: 0.9rem; }
-
-  /* CHECK BUTTON */
   .check-btn {
     background: #ed8936; color: white; border: none;
     padding: 8px 18px; border-radius: 8px; cursor: pointer;
-    font-weight: 600; font-size: 0.92rem; margin-top: 8px;
+    font-weight: 600; font-size: 0.9rem; margin-top: 10px;
     transition: background 0.2s;
   }
   .check-btn:hover { background: #dd6b20; }
   .check-btn:disabled { background: #a0aec0; cursor: not-allowed; }
 
   .feedback {
-    margin-top: 8px; font-weight: 600; font-size: 0.95rem;
-    min-height: 22px;
+    margin-top: 10px; font-weight: 600; font-size: 0.95rem;
+    min-height: 22px; text-align: center;
   }
   .feedback.ok { color: #2f855a; }
   .feedback.bad { color: #c53030; }
+
+  .audio-btn {
+    background: #4299e1; color: white; border: none;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600; margin: 6px 6px 12px 0;
+    transition: background 0.3s;
+  }
+  .audio-btn:hover { background: #3182ce; }
+  .audio-btn:disabled { background: #a0aec0; cursor: not-allowed; }
+
+  .audio-bar {
+    text-align: center; margin-bottom: 15px;
+  }
 
   /* BTN */
   .btn {
@@ -217,8 +196,10 @@
   @media (max-width: 600px) {
     .container { padding: 20px 16px; }
     h1 { font-size: 1.35rem; }
-    .tab-btn { font-size: 0.8rem; padding: 8px 10px; }
+    .tab-btn { font-size: 0.78rem; padding: 8px 10px; }
     .section-box { padding: 16px; }
+    .bubble input.blank-input { width: 100px; }
+    .bubble input.blank-input.wide { width: 130px; }
   }
 </style>
 </head>
@@ -228,8 +209,8 @@
 
   <!-- ============ LOGIN ============ -->
   <div id="loginScreen">
-    <h1>🔐 Sesión 4 — Present Perfect</h1>
-    <p class="subtitle">3er Semestre · 5 Activities · 75 Exercises</p>
+    <h1>🔐 Clase 5 — Diálogos con Present Perfect</h1>
+    <p class="subtitle">4 Diálogos · Complete the missing words</p>
     <p>Ingresa el código de acceso de 4 dígitos:</p>
     <input type="password" id="accessInput" maxlength="4" inputmode="numeric" placeholder="••••">
     <button id="loginBtn" onclick="checkAccess()">ENTRAR</button>
@@ -239,7 +220,7 @@
   <!-- ============ MAIN ============ -->
   <div id="mainContent">
 
-    <div class="blogger-notice">
+    <div class="instructions-box">
       📝 <strong>INSTRUCCIONES IMPORTANTES:</strong>
       <ul>
         <li><strong>Todos los alumnos deben contestar los 4 diálogos</strong> en esta página.</li>
@@ -252,83 +233,84 @@
       </ul>
     </div>
 
-    <h1>📘 SESIÓN 4 — PRESENT PERFECT</h1>
-    <p class="subtitle">Yes/No Questions · Negative · Ever / Never · Order · Listening</p>
+    <h1>💬 CLASE 5 — DIÁLOGOS CON PRESENT PERFECT</h1>
+    <p class="subtitle">Complete the dialogues with the missing words</p>
 
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab(1, this)">✍️ Act 1 — Yes/No Qs</button>
-      <button class="tab-btn" onclick="switchTab(2, this)">✍️ Act 2 — Negative/Interr.</button>
-      <button class="tab-btn" onclick="switchTab(3, this)">🔤 Act 3 — Ever/Never/Yet</button>
-      <button class="tab-btn" onclick="switchTab(4, this)">🧩 Act 4 — Order</button>
-      <button class="tab-btn" onclick="switchTab(5, this)">🎧 Act 5 — Listening</button>
+      <button class="tab-btn active" onclick="switchTab(1, this)">💬 Diálogo 1 (2 personas)</button>
+      <button class="tab-btn" onclick="switchTab(2, this)">💬 Diálogo 2 (2 personas)</button>
+      <button class="tab-btn" onclick="switchTab(3, this)">💬 Diálogo 3 (3 personas)</button>
+      <button class="tab-btn" onclick="switchTab(4, this)">💬 Diálogo 4 (3 personas)</button>
     </div>
 
-    <!-- ============ ACTIVIDAD 1 ============ -->
+    <!-- ============ DIÁLOGO 1 ============ -->
     <div id="tab1" class="tab-content active">
       <div class="section-box">
-        <h2>✍️ ACTIVIDAD 1 — Write Yes/No Questions in Present Perfect</h2>
-        <p class="instruction">Escribe la <strong>Yes/No question</strong> en present perfect usando el prompt. Después elige la opción correcta. (15 ejercicios)</p>
+        <h2>💬 DIÁLOGO 1 — Two people (A & B)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (14 participaciones)</p>
         <div class="grammar-tip">
-          💡 <strong>Grammar Tip:</strong> Question: <em>Have/Has + Subject + past participle?</em>
+          💡 <strong>Grammar Tip:</strong> <em>have / has + past participle</em> · Question: <em>Have/Has + S + past participle?</em>
         </div>
-        <div class="note-box">
-          ✏️ <strong>En tu cuaderno:</strong> escribe la pregunta completa en inglés y luego marca tu respuesta.
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(1, event)">🔊 Escuchar el diálogo completo</button>
         </div>
-        <div id="actividad1"></div>
+        <div class="dialogue-title">Dialogue 1 — Talking about travel experiences</div>
+        <div class="dialogue-box" id="dialogue1"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(1)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb1"></div>
+        </div>
       </div>
     </div>
 
-    <!-- ============ ACTIVIDAD 2 ============ -->
+    <!-- ============ DIÁLOGO 2 ============ -->
     <div id="tab2" class="tab-content">
       <div class="section-box">
-        <h2>✍️ ACTIVIDAD 2 — Negative or Interrogative Form</h2>
-        <p class="instruction">Completa la oración con la forma negativa o interrogativa del present perfect. Usa contracciones cuando sea posible. (15 ejercicios)</p>
-        <div class="grammar-tip">
-          💡 <strong>Grammar Tip:</strong> Negative: <em>S + have/has + not + past participle</em> · Question: <em>Have/Has + S + past participle?</em>
+        <h2>💬 DIÁLOGO 2 — Two people (A & B)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (14 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(2, event)">🔊 Escuchar el diálogo completo</button>
         </div>
-        <div class="note-box">
-          ✏️ <strong>En tu cuaderno:</strong> escribe la oración completa con tu respuesta.
+        <div class="dialogue-title">Dialogue 2 — Talking about school and homework</div>
+        <div class="dialogue-box" id="dialogue2"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(2)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb2"></div>
         </div>
-        <div id="actividad2"></div>
       </div>
     </div>
 
-    <!-- ============ ACTIVIDAD 3 ============ -->
+    <!-- ============ DIÁLOGO 3 ============ -->
     <div id="tab3" class="tab-content">
       <div class="section-box">
-        <h2>🔤 ACTIVIDAD 3 — Ever / Never / Already / Yet / Just</h2>
-        <p class="instruction">Elige la palabra correcta para completar la oración en present perfect. (15 ejercicios)</p>
-        <div class="grammar-tip">
-          💡 <strong>Grammar Tip:</strong> Use <em>ever</em> in questions · <em>never</em> in affirmative for experience · <em>already / just</em> in affirmative · <em>yet</em> in negative and questions.
+        <h2>💬 DIÁLOGO 3 — Three people (A, B & C)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (18 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(3, event)">🔊 Escuchar el diálogo completo</button>
         </div>
-        <div class="note-box">
-          ✏️ <strong>En tu cuaderno:</strong> escribe la oración completa y marca tu respuesta.
+        <div class="dialogue-title">Dialogue 3 — Talking about food and restaurants</div>
+        <div class="dialogue-box" id="dialogue3"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(3)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb3"></div>
         </div>
-        <div id="actividad3"></div>
       </div>
     </div>
 
-    <!-- ============ ACTIVIDAD 4 ============ -->
+    <!-- ============ DIÁLOGO 4 ============ -->
     <div id="tab4" class="tab-content">
       <div class="section-box">
-        <h2>🧩 ACTIVIDAD 4 — Order the Words</h2>
-        <p class="instruction">Ordena las palabras y <strong>escribe</strong> la oración completa en present perfect. (15 ejercicios)</p>
-        <div class="note-box">
-          ✏️ <strong>En tu cuaderno:</strong> escribe la oración ordenada completa.
+        <h2>💬 DIÁLOGO 4 — Three people (A, B & C)</h2>
+        <p class="instruction">Completa cada espacio con la forma correcta del <strong>Present Perfect</strong>. (18 participaciones)</p>
+        <div class="audio-bar">
+          <button class="audio-btn" onclick="speakDialogue(4, event)">🔊 Escuchar el diálogo completo</button>
         </div>
-        <div id="actividad4"></div>
-      </div>
-    </div>
-
-    <!-- ============ ACTIVIDAD 5 ============ -->
-    <div id="tab5" class="tab-content">
-      <div class="section-box">
-        <h2>🎧 ACTIVIDAD 5 — Listen & Choose</h2>
-        <p class="instruction">Escucha la oración en present perfect y elige la opción correcta. (15 ejercicios)</p>
-        <div class="note-box">
-          ✏️ <strong>En tu cuaderno:</strong> escribe lo que escuchas y luego la opción correcta.
+        <div class="dialogue-title">Dialogue 4 — Talking about movies and plans</div>
+        <div class="dialogue-box" id="dialogue4"></div>
+        <div style="text-align:center;">
+          <button class="check-btn" onclick="checkDialogue(4)">✔ Verificar respuestas</button>
+          <div class="feedback" id="fb4"></div>
         </div>
-        <div id="actividad5"></div>
       </div>
     </div>
 
@@ -340,7 +322,7 @@
 
   <!-- ============ RESULTADOS ============ -->
   <div id="resultsScreen">
-    <h2>🏆 Resultados — Sesión 4</h2>
+    <h2>🏆 Resultados — Clase 5</h2>
     <div class="score-box" id="scoreBox"></div>
     <div class="btn-center">
       <button class="btn btn-primary" onclick="location.reload()">🔄 Volver al inicio</button>
@@ -351,7 +333,7 @@
 
 <script>
 /* ============ ACCESO ============ */
-const ACCESS_CODE = "3223";
+const ACCESS_CODE = "2332";
 let attempts = 0;
 
 function checkAccess() {
@@ -403,14 +385,6 @@ function speak(text, btnElement, lang = 'en-US') {
 if ('speechSynthesis' in window) { window.speechSynthesis.getVoices(); }
 
 /* ============ UTIL ============ */
-function shuffleArr(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 function normalize(str) {
   return (str || '').toLowerCase().trim()
     .replace(/[.,!?;:¿¡"']/g, '')
@@ -418,377 +392,270 @@ function normalize(str) {
 }
 
 /* =====================================================================
-   ACTIVIDAD 1 — 15 Yes/No Questions (escribir + elegir opción)
+   DATOS DE LOS 4 DIÁLOGOS
    ===================================================================== */
-const ACTIVIDAD1 = [
-  { prompt: "you / visit / Mexico City",     correct: "Have you visited Mexico City?",
-    wrong: ["Have you visit Mexico City?", "Did you visited Mexico City?", "Has you visited Mexico City?"] },
-  { prompt: "she / eat / mole",              correct: "Has she eaten mole?",
-    wrong: ["Have she eaten mole?", "Has she ate mole?", "Did she eaten mole?"] },
-  { prompt: "they / travel / abroad",        correct: "Have they traveled abroad?",
-    wrong: ["Has they traveled abroad?", "Have they travel abroad?", "Did they traveled abroad?"] },
-  { prompt: "he / read / Don Quixote",       correct: "Has he read Don Quixote?",
-    wrong: ["Have he read Don Quixote?", "Has he readed Don Quixote?", "Did he readed Don Quixote?"] },
-  { prompt: "we / finish / the project",     correct: "Have we finished the project?",
-    wrong: ["Has we finished the project?", "Have we finish the project?", "Did we finished the project?"] },
-  { prompt: "Maria / write / a letter",      correct: "Has Maria written a letter?",
-    wrong: ["Have Maria written a letter?", "Has Maria wrote a letter?", "Did Maria written a letter?"] },
-  { prompt: "you / see / the new movie",     correct: "Have you seen the new movie?",
-    wrong: ["Has you seen the new movie?", "Have you saw the new movie?", "Did you seen the new movie?"] },
-  { prompt: "Carlos / buy / a car",          correct: "Has Carlos bought a car?",
-    wrong: ["Have Carlos bought a car?", "Has Carlos buyed a car?", "Did Carlos bought a car?"] },
-  { prompt: "your parents / go / to Cancun", correct: "Have your parents gone to Cancun?",
-    wrong: ["Has your parents gone to Cancun?", "Have your parents went to Cancun?", "Did your parents gone to Cancun?"] },
-  { prompt: "you / take / the English exam", correct: "Have you taken the English exam?",
-    wrong: ["Has you taken the English exam?", "Have you took the English exam?", "Did you taken the English exam?"] },
-  { prompt: "she / speak / to the teacher",  correct: "Has she spoken to the teacher?",
-    wrong: ["Have she spoken to the teacher?", "Has she spoke to the teacher?", "Did she spoken to the teacher?"] },
-  { prompt: "they / be / to Europe",         correct: "Have they been to Europe?",
-    wrong: ["Has they been to Europe?", "Have they be to Europe?", "Did they been to Europe?"] },
-  { prompt: "he / do / his homework",        correct: "Has he done his homework?",
-    wrong: ["Have he done his homework?", "Has he did his homework?", "Did he done his homework?"] },
-  { prompt: "we / meet / the new student",   correct: "Have we met the new student?",
-    wrong: ["Has we met the new student?", "Have we meet the new student?", "Did we met the new student?"] },
-  { prompt: "you / ever / try / sushi",      correct: "Have you ever tried sushi?",
-    wrong: ["Has you ever tried sushi?", "Have you ever try sushi?", "Did you ever tried sushi?"] }
-];
+
+const DIALOGUES = {
+  1: {
+    lines: [
+      { speaker: 'A', text: 'Hi! I {{b1}} (not / see) you for a long time. How are you?',
+        blanks: [{ id: 'b1', answer: "haven't seen", width: 'wide' }] },
+      { speaker: 'B', text: 'I\'m great! I {{b2}} (just / come) back from a trip to Mexico.',
+        blanks: [{ id: 'b2', answer: "have just come", width: 'wide' }] },
+      { speaker: 'A', text: 'Wow! {{b3}} you {{b4}} (ever / be) to Mexico City?',
+        blanks: [{ id: 'b3', answer: "Have" }, { id: 'b4', answer: "ever been", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b5}} (visit) Mexico City three times.',
+        blanks: [{ id: 'b5', answer: "have visited", width: 'wide' }] },
+      { speaker: 'A', text: 'Lucky you! I {{b6}} (never / travel) outside my country.',
+        blanks: [{ id: 'b6', answer: "have never traveled", width: 'wide' }] },
+      { speaker: 'B', text: 'Really? You should go! {{b7}} you {{b8}} (ever / try) Mexican food?',
+        blanks: [{ id: 'b7', answer: "Have" }, { id: 'b8', answer: "ever tried", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes! I {{b9}} (eat) tacos many times. They are delicious!',
+        blanks: [{ id: 'b9', answer: "have eaten", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! And {{b10}} you {{b11}} (ever / see) the pyramids?',
+        blanks: [{ id: 'b10', answer: "have" }, { id: 'b11', answer: "ever seen", width: 'wide' }] },
+      { speaker: 'A', text: 'No, I {{b12}} (not / see) them yet, but I want to.',
+        blanks: [{ id: 'b12', answer: "haven't seen", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b13}} (already / take) hundreds of photos. I can show you!',
+        blanks: [{ id: 'b13', answer: "have already taken", width: 'wide' }] },
+      { speaker: 'A', text: 'That sounds amazing! {{b14}} you {{b15}} (buy) any souvenirs?',
+        blanks: [{ id: 'b14', answer: "Have" }, { id: 'b15', answer: "bought", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b16}} (buy) a beautiful hat for my mother.',
+        blanks: [{ id: 'b16', answer: "have bought", width: 'wide' }] },
+      { speaker: 'A', text: 'You {{b17}} (be) very busy! Thanks for telling me.',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'You\'re welcome! We {{b18}} (have) a great conversation.',
+        blanks: [{ id: 'b18', answer: "have had", width: 'wide' }] }
+    ],
+    audio: "A: Hi! I haven't seen you for a long time. How are you? B: I'm great! I have just come back from a trip to Mexico. A: Wow! Have you ever been to Mexico City? B: Yes, I have visited Mexico City three times. A: Lucky you! I have never traveled outside my country. B: Really? You should go! Have you ever tried Mexican food? A: Yes! I have eaten tacos many times. They are delicious! B: Great! And have you ever seen the pyramids? A: No, I haven't seen them yet, but I want to. B: I have already taken hundreds of photos. I can show you! A: That sounds amazing! Have you bought any souvenirs? B: Yes, I have bought a beautiful hat for my mother. A: You have been very busy! Thanks for telling me. B: You're welcome! We have had a great conversation."
+  },
+
+  2: {
+    lines: [
+      { speaker: 'A', text: 'Hi! {{b1}} you {{b2}} (finish) your English homework?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "finished", width: 'wide' }] },
+      { speaker: 'B', text: 'Not yet. I {{b3}} (not / start) it. I\'ve been very busy.',
+        blanks: [{ id: 'b3', answer: "haven't started", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? I {{b4}} (already / do) all my exercises.',
+        blanks: [{ id: 'b4', answer: "have already done", width: 'wide' }] },
+      { speaker: 'B', text: 'Wow, you\'re fast! {{b5}} you {{b6}} (read) the new chapter?',
+        blanks: [{ id: 'b5', answer: "Have" }, { id: 'b6', answer: "read", width: 'normal' }] },
+      { speaker: 'A', text: 'Yes, I {{b7}} (read) it twice. It\'s very interesting.',
+        blanks: [{ id: 'b7', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (not / have) time to read it yet.',
+        blanks: [{ id: 'b8', answer: "haven't had", width: 'wide' }] },
+      { speaker: 'A', text: 'Don\'t worry. {{b9}} she {{b10}} (give) us more time?',
+        blanks: [{ id: 'b9', answer: "Has" }, { id: 'b10', answer: "given", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, she {{b11}} (extend) the deadline until Friday.',
+        blanks: [{ id: 'b11', answer: "has extended", width: 'wide' }] },
+      { speaker: 'A', text: 'Perfect! I {{b12}} (just / write) my essay too.',
+        blanks: [{ id: 'b12', answer: "have just written", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! {{b13}} you {{b14}} (check) the grammar?',
+        blanks: [{ id: 'b13', answer: "Have" }, { id: 'b14', answer: "checked", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes, I {{b15}} (correct) all my mistakes.',
+        blanks: [{ id: 'b15', answer: "have corrected", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b16}} (never / see) someone so organized!',
+        blanks: [{ id: 'b16', answer: "have never seen", width: 'wide' }] },
+      { speaker: 'A', text: 'Thanks! We {{b17}} (be) friends for many years, right?',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes! And we {{b18}} (always / help) each other with homework.',
+        blanks: [{ id: 'b18', answer: "have always helped", width: 'wide' }] }
+    ],
+    audio: "A: Hi! Have you finished your English homework? B: Not yet. I haven't started it. I've been very busy. A: Really? I have already done all my exercises. B: Wow, you're fast! Have you read the new chapter? A: Yes, I have read it twice. It's very interesting. B: I haven't had time to read it yet. A: Don't worry. Has she given us more time? B: Yes, she has extended the deadline until Friday. A: Perfect! I have just written my essay too. B: Great! Have you checked the grammar? A: Yes, I have corrected all my mistakes. B: I have never seen someone so organized! A: Thanks! We have been friends for many years, right? B: Yes! And we have always helped each other with homework."
+  },
+
+  3: {
+    lines: [
+      { speaker: 'A', text: 'Hi everyone! {{b1}} you {{b2}} (try) the new restaurant downtown?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "tried", width: 'wide' }] },
+      { speaker: 'B', text: 'No, I {{b3}} (not / go) there yet. Is it good?',
+        blanks: [{ id: 'b3', answer: "haven't gone", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes! I {{b4}} (already / eat) there twice. The food is amazing.',
+        blanks: [{ id: 'b4', answer: "have already eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? What {{b5}} you {{b6}} (order)?',
+        blanks: [{ id: 'b5', answer: "have" }, { id: 'b6', answer: "ordered", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b7}} (try) the seafood pasta. It\'s delicious!',
+        blanks: [{ id: 'b7', answer: "have tried", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (never / eat) seafood. I\'m a little scared.',
+        blanks: [{ id: 'b8', answer: "have never eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Don\'t worry! I {{b9}} (have) seafood many times. It\'s safe.',
+        blanks: [{ id: 'b9', answer: "have had", width: 'wide' }] },
+      { speaker: 'C', text: '{{b10}} you {{b11}} (ever / try) Italian food?',
+        blanks: [{ id: 'b10', answer: "Have" }, { id: 'b11', answer: "ever tried", width: 'wide' }] },
+      { speaker: 'B', text: 'Yes, I {{b12}} (eat) pizza and lasagna before.',
+        blanks: [{ id: 'b12', answer: "have eaten", width: 'wide' }] },
+      { speaker: 'A', text: 'Then you\'ll love this place. The chef {{b13}} (win) many awards.',
+        blanks: [{ id: 'b13', answer: "has won", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes! I {{b14}} (read) about him in a magazine.',
+        blanks: [{ id: 'b14', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'Okay, I\'ll go! {{b15}} they {{b16}} (open) a new location?',
+        blanks: [{ id: 'b15', answer: "Have" }, { id: 'b16', answer: "opened", width: 'wide' }] },
+      { speaker: 'A', text: 'Yes, they {{b17}} (just / open) one near the park.',
+        blanks: [{ id: 'b17', answer: "have just opened", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b18}} (not / visit) the new one yet, but I will soon.',
+        blanks: [{ id: 'b18', answer: "haven't visited", width: 'wide' }] },
+      { speaker: 'B', text: 'Great! Let\'s go together this weekend.',
+        blanks: [] },
+      { speaker: 'A', text: 'Perfect! I {{b19}} (already / tell) my sister about it too.',
+        blanks: [{ id: 'b19', answer: "have already told", width: 'wide' }] },
+      { speaker: 'C', text: 'Wonderful! We {{b20}} (not / have) this much fun in a long time!',
+        blanks: [{ id: 'b20', answer: "haven't had", width: 'wide' }] }
+    ],
+    audio: "A: Hi everyone! Have you tried the new restaurant downtown? B: No, I haven't gone there yet. Is it good? C: Yes! I have already eaten there twice. The food is amazing. A: Really? What have you ordered? C: I have tried the seafood pasta. It's delicious! B: I have never eaten seafood. I'm a little scared. A: Don't worry! I have had seafood many times. It's safe. C: Have you ever tried Italian food? B: Yes, I have eaten pizza and lasagna before. A: Then you'll love this place. The chef has won many awards. C: Yes! I have read about him in a magazine. B: Okay, I'll go! Have they opened a new location? A: Yes, they have just opened one near the park. C: I haven't visited the new one yet, but I will soon. B: Great! Let's go together this weekend. A: Perfect! I have already told my sister about it too. C: Wonderful! We haven't had this much fun in a long time!"
+  },
+
+  4: {
+    lines: [
+      { speaker: 'A', text: 'Hey! {{b1}} you {{b2}} (see) the new superhero movie?',
+        blanks: [{ id: 'b1', answer: "Have" }, { id: 'b2', answer: "seen", width: 'wide' }] },
+      { speaker: 'B', text: 'Not yet. I {{b3}} (not / have) time this week.',
+        blanks: [{ id: 'b3', answer: "haven't had", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b4}} (already / watch) it twice! It\'s fantastic.',
+        blanks: [{ id: 'b4', answer: "have already watched", width: 'wide' }] },
+      { speaker: 'A', text: 'Really? {{b5}} you {{b6}} (ever / see) the first one?',
+        blanks: [{ id: 'b5', answer: "Have" }, { id: 'b6', answer: "ever seen", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes, I {{b7}} (watch) it many times. It\'s my favorite.',
+        blanks: [{ id: 'b7', answer: "have watched", width: 'wide' }] },
+      { speaker: 'B', text: 'I {{b8}} (never / watch) any superhero movie.',
+        blanks: [{ id: 'b8', answer: "have never watched", width: 'wide' }] },
+      { speaker: 'A', text: 'No way! You {{b9}} (miss) so much!',
+        blanks: [{ id: 'b9', answer: "have missed", width: 'wide' }] },
+      { speaker: 'B', text: 'I know. {{b10}} the director {{b11}} (make) other movies?',
+        blanks: [{ id: 'b10', answer: "Has" }, { id: 'b11', answer: "made", width: 'wide' }] },
+      { speaker: 'C', text: 'Yes, he {{b12}} (direct) three other action films.',
+        blanks: [{ id: 'b12', answer: "has directed", width: 'wide' }] },
+      { speaker: 'A', text: 'I {{b13}} (read) great reviews about all of them.',
+        blanks: [{ id: 'b13', answer: "have read", width: 'wide' }] },
+      { speaker: 'B', text: 'Okay, I\'ll watch the first one tonight. {{b14}} you {{b15}} (buy) the tickets yet?',
+        blanks: [{ id: 'b14', answer: "Have" }, { id: 'b15', answer: "bought", width: 'wide' }] },
+      { speaker: 'C', text: 'I {{b16}} (already / buy) three tickets for Friday!',
+        blanks: [{ id: 'b16', answer: "have already bought", width: 'wide' }] },
+      { speaker: 'A', text: 'Perfect! We {{b17}} (be) friends for years and never gone to the movies together.',
+        blanks: [{ id: 'b17', answer: "have been", width: 'wide' }] },
+      { speaker: 'B', text: 'You\'re right! I {{b18}} (not / feel) this excited in a long time.',
+        blanks: [{ id: 'b18', answer: "haven't felt", width: 'wide' }] },
+      { speaker: 'C', text: 'Me too! We {{b19}} (already / plan) the whole evening.',
+        blanks: [{ id: 'b19', answer: "have already planned", width: 'wide' }] },
+      { speaker: 'A', text: 'Great! Let\'s meet at 7. I {{b20}} (just / charge) my phone.',
+        blanks: [{ id: 'b20', answer: "have just charged", width: 'wide' }] }
+    ],
+    audio: "A: Hey! Have you seen the new superhero movie? B: Not yet. I haven't had time this week. C: I have already watched it twice! It's fantastic. A: Really? Have you ever seen the first one? C: Yes, I have watched it many times. It's my favorite. B: I have never watched any superhero movie. A: No way! You have missed so much! B: I know. Has the director made other movies? C: Yes, he has directed three other action films. A: I have read great reviews about all of them. B: Okay, I'll watch the first one tonight. Have you bought the tickets yet? C: I have already bought three tickets for Friday! A: Perfect! We have been friends for years and never gone to the movies together. B: You're right! I haven't felt this excited in a long time. C: Me too! We have already planned the whole evening. A: Great! Let's meet at 7. I have just charged my phone."
+  }
+};
 
 /* =====================================================================
-   ACTIVIDAD 2 — 15 Negative/Interrogative (elegir opción)
+   RENDER DE DIÁLOGOS
    ===================================================================== */
-const ACTIVIDAD2 = [
-  { sentence: "I ___ (not / finish) my homework yet.",            correct: "haven't finished",
-    options: ["haven't finished", "hasn't finished", "don't finish", "didn't finished"] },
-  { sentence: "___ you ___ (ever / be) to Guadalajara?",          correct: "Have / been",
-    options: ["Have / been", "Has / been", "Did / been", "Have / be"] },
-  { sentence: "She ___ (not / eat) sushi.",                       correct: "hasn't eaten",
-    options: ["hasn't eaten", "haven't eaten", "hasn't ate", "didn't eat"] },
-  { sentence: "___ they ___ (visit) the museum?",                 correct: "Have / visited",
-    options: ["Have / visited", "Has / visited", "Did / visited", "Have / visit"] },
-  { sentence: "We ___ (not / see) that movie.",                   correct: "haven't seen",
-    options: ["haven't seen", "hasn't seen", "haven't saw", "didn't saw"] },
-  { sentence: "___ he ___ (ever / travel) by plane?",             correct: "Has / traveled",
-    options: ["Has / traveled", "Have / traveled", "Has / travel", "Did / traveled"] },
-  { sentence: "Carlos ___ (not / write) the report.",             correct: "hasn't written",
-    options: ["hasn't written", "haven't written", "hasn't wrote", "didn't wrote"] },
-  { sentence: "___ you ___ (ever / read) a novel in English?",    correct: "Have / read",
-    options: ["Have / read", "Has / read", "Have / readed", "Did / read"] },
-  { sentence: "Maria ___ (not / take) the test yet.",             correct: "hasn't taken",
-    options: ["hasn't taken", "haven't taken", "hasn't took", "didn't took"] },
-  { sentence: "___ your sister ___ (ever / sing) in public?",     correct: "Has / sung",
-    options: ["Has / sung", "Have / sung", "Has / sang", "Did / sung"] },
-  { sentence: "They ___ (not / arrive) yet.",                     correct: "haven't arrived",
-    options: ["haven't arrived", "hasn't arrived", "haven't arrive", "didn't arrive"] },
-  { sentence: "___ you ___ (finish) your project?",               correct: "Have / finished",
-    options: ["Have / finished", "Has / finished", "Have / finish", "Did / finished"] },
-  { sentence: "He ___ (not / be) to London.",                     correct: "hasn't been",
-    options: ["hasn't been", "haven't been", "hasn't be", "didn't been"] },
-  { sentence: "___ we ___ (meet) before?",                        correct: "Have / met",
-    options: ["Have / met", "Has / met", "Have / meet", "Did / met"] },
-  { sentence: "My parents ___ (not / come) home yet.",            correct: "haven't come",
-    options: ["haven't come", "hasn't come", "haven't came", "didn't came"] }
-];
-
-/* =====================================================================
-   ACTIVIDAD 3 — 15 Ever / Never / Already / Yet / Just
-   ===================================================================== */
-const ACTIVIDAD3 = [
-  { sentence: "Have you ___ been to Canada?",         correct: "ever",
-    options: ["ever", "never", "yet", "already"] },
-  { sentence: "I have ___ eaten sushi. I don't like it.", correct: "never",
-    options: ["never", "ever", "yet", "already"] },
-  { sentence: "She has ___ finished her homework.",   correct: "already",
-    options: ["already", "yet", "ever", "never"] },
-  { sentence: "They haven't arrived ___.",            correct: "yet",
-    options: ["yet", "already", "ever", "never"] },
-  { sentence: "He has ___ left the office.",          correct: "just",
-    options: ["just", "yet", "ever", "never"] },
-  { sentence: "Have you ___ seen this movie?",        correct: "ever",
-    options: ["ever", "never", "already", "just"] },
-  { sentence: "We have ___ been to Paris.",           correct: "never",
-    options: ["never", "ever", "yet", "just"] },
-  { sentence: "I have ___ finished my dinner.",       correct: "just",
-    options: ["just", "yet", "ever", "never"] },
-  { sentence: "Has she ___ finished the report?",     correct: "already",
-    options: ["already", "yet", "ever", "never"] },
-  { sentence: "They haven't seen the movie ___.",     correct: "yet",
-    options: ["yet", "already", "just", "ever"] },
-  { sentence: "Have you ___ tried Mexican food?",     correct: "ever",
-    options: ["ever", "never", "yet", "already"] },
-  { sentence: "He has ___ come back from work.",      correct: "just",
-    options: ["just", "yet", "ever", "never"] },
-  { sentence: "I have ___ been to Japan.",            correct: "never",
-    options: ["never", "ever", "already", "yet"] },
-  { sentence: "She has ___ cleaned the kitchen.",     correct: "already",
-    options: ["already", "yet", "ever", "never"] },
-  { sentence: "Have they ___ eaten at that restaurant?", correct: "ever",
-    options: ["ever", "never", "just", "yet"] }
-];
-
-/* =====================================================================
-   ACTIVIDAD 4 — 15 Order the words (escribir oración completa)
-   ===================================================================== */
-const ACTIVIDAD4 = [
-  { words: ["Have", "you", "ever", "visited", "Mexico"],          correct: "Have you ever visited Mexico?" },
-  { words: ["She", "has", "not", "eaten", "sushi"],               correct: "She has not eaten sushi." },
-  { words: ["Has", "he", "finished", "his", "homework"],          correct: "Has he finished his homework?" },
-  { words: ["We", "have", "already", "seen", "the", "movie"],     correct: "We have already seen the movie." },
-  { words: ["They", "have", "not", "arrived", "yet"],             correct: "They have not arrived yet." },
-  { words: ["Have", "you", "ever", "been", "to", "Guadalajara"],  correct: "Have you ever been to Guadalajara?" },
-  { words: ["He", "has", "just", "written", "a", "letter"],       correct: "He has just written a letter." },
-  { words: ["Maria", "has", "not", "taken", "the", "test"],       correct: "Maria has not taken the test." },
-  { words: ["Have", "they", "ever", "traveled", "abroad"],        correct: "Have they ever traveled abroad?" },
-  { words: ["I", "have", "never", "seen", "this", "movie"],       correct: "I have never seen this movie." },
-  { words: ["Has", "she", "already", "read", "the", "book"],      correct: "Has she already read the book?" },
-  { words: ["We", "have", "not", "finished", "the", "project"],   correct: "We have not finished the project." },
-  { words: ["Have", "you", "ever", "eaten", "mole"],              correct: "Have you ever eaten mole?" },
-  { words: ["Carlos", "has", "just", "bought", "a", "car"],       correct: "Carlos has just bought a car." },
-  { words: ["They", "have", "not", "seen", "the", "new", "movie"],correct: "They have not seen the new movie." }
-];
-
-/* =====================================================================
-   ACTIVIDAD 5 — 15 Listen & Choose
-   ===================================================================== */
-const ACTIVIDAD5 = [
-  { audio: "Have you ever visited Mexico City?",   correct: "Have you ever visited Mexico City?",
-    options: ["Have you ever visited Mexico City?", "Have you ever visit Mexico City?", "Has you ever visited Mexico City?", "Did you ever visited Mexico City?"] },
-  { audio: "She has not eaten sushi.",             correct: "She has not eaten sushi.",
-    options: ["She has not eaten sushi.", "She has not ate sushi.", "She have not eaten sushi.", "She did not eaten sushi."] },
-  { audio: "Has he finished his homework?",        correct: "Has he finished his homework?",
-    options: ["Has he finished his homework?", "Have he finished his homework?", "Has he finish his homework?", "Did he finished his homework?"] },
-  { audio: "We have already seen the movie.",      correct: "We have already seen the movie.",
-    options: ["We have already seen the movie.", "We have already saw the movie.", "We has already seen the movie.", "We have already see the movie."] },
-  { audio: "They have not arrived yet.",           correct: "They have not arrived yet.",
-    options: ["They have not arrived yet.", "They has not arrived yet.", "They have not arrive yet.", "They did not arrived yet."] },
-  { audio: "Have you ever been to Guadalajara?",   correct: "Have you ever been to Guadalajara?",
-    options: ["Have you ever been to Guadalajara?", "Has you ever been to Guadalajara?", "Have you ever be to Guadalajara?", "Did you ever been to Guadalajara?"] },
-  { audio: "He has just written a letter.",        correct: "He has just written a letter.",
-    options: ["He has just written a letter.", "He has just wrote a letter.", "He have just written a letter.", "He has just write a letter."] },
-  { audio: "Maria has not taken the test.",        correct: "Maria has not taken the test.",
-    options: ["Maria has not taken the test.", "Maria has not took the test.", "Maria have not taken the test.", "Maria did not taken the test."] },
-  { audio: "Have they ever traveled abroad?",      correct: "Have they ever traveled abroad?",
-    options: ["Have they ever traveled abroad?", "Has they ever traveled abroad?", "Have they ever travel abroad?", "Did they ever traveled abroad?"] },
-  { audio: "I have never seen this movie.",        correct: "I have never seen this movie.",
-    options: ["I have never seen this movie.", "I have never saw this movie.", "I has never seen this movie.", "I have never see this movie."] },
-  { audio: "Has she already read the book?",       correct: "Has she already read the book?",
-    options: ["Has she already read the book?", "Have she already read the book?", "Has she already readed the book?", "Did she already read the book?"] },
-  { audio: "We have not finished the project.",    correct: "We have not finished the project.",
-    options: ["We have not finished the project.", "We has not finished the project.", "We have not finish the project.", "We did not finished the project."] },
-  { audio: "Have you ever eaten mole?",            correct: "Have you ever eaten mole?",
-    options: ["Have you ever eaten mole?", "Has you ever eaten mole?", "Have you ever ate mole?", "Did you ever eaten mole?"] },
-  { audio: "Carlos has just bought a car.",        correct: "Carlos has just bought a car.",
-    options: ["Carlos has just bought a car.", "Carlos has just buyed a car.", "Carlos have just bought a car.", "Carlos has just buy a car."] },
-  { audio: "They have not seen the new movie.",    correct: "They have not seen the new movie.",
-    options: ["They have not seen the new movie.", "They has not seen the new movie.", "They have not saw the new movie.", "They did not seen the new movie."] }
-];
-
-/* =====================================================================
-   RENDER ACTIVIDAD 1 — escribir + opciones
-   ===================================================================== */
-function renderActividad1() {
-  const c = document.getElementById('actividad1');
-  c.innerHTML = ACTIVIDAD1.map((q, i) => {
-    const options = shuffleArr([q.correct, ...q.wrong]);
-    return `
-      <div class="question">
-        <span class="q-num">${i + 1}.</span>
-        <div class="q-prompt">Prompt: <em>${q.prompt}</em></div>
-        <input type="text" class="write-input" id="a1_input_${i}"
-               placeholder="Escribe la Yes/No question aquí..." autocomplete="off"
-               autocorrect="off" autocapitalize="off" spellcheck="false" translate="no">
-        <button class="check-btn" onclick="checkWriteA1(${i})">✔ Verificar escritura</button>
-        <div class="feedback" id="a1_fb_${i}"></div>
-        <div class="options">
-          ${options.map(opt => `
-            <label>
-              <input type="radio" name="a1_${i}" value="${opt.replace(/"/g, '&quot;')}">
-              ${opt}
-            </label>
-          `).join('')}
-        </div>
+function renderDialogue(num) {
+  const d = DIALOGUES[num];
+  const box = document.getElementById('dialogue' + num);
+  let html = '';
+  d.lines.forEach((line, li) => {
+    let text = line.text;
+    line.blanks.forEach(b => {
+      const widthClass = b.width === 'wide' ? 'wide' : '';
+      text = text.replace(
+        `{{${b.id}}}`,
+        `<input type="text" class="blank-input ${widthClass}"
+                id="d${num}_${b.id}" data-answer="${b.answer}"
+                autocomplete="off" autocorrect="off" autocapitalize="off"
+                spellcheck="false" translate="no" lang="en">`
+      );
+    });
+    const speakerClass = line.speaker === 'A' ? '' : line.speaker === 'B' ? 'b' : 'c';
+    html += `
+      <div class="line">
+        <div class="speaker ${speakerClass}">${line.speaker})</div>
+        <div class="bubble">${text}</div>
       </div>
     `;
-  }).join('');
+  });
+  box.innerHTML = html;
 }
 
-function checkWriteA1(i) {
-  const q = ACTIVIDAD1[i];
-  const input = document.getElementById(`a1_input_${i}`);
-  const fb = document.getElementById(`a1_fb_${i}`);
-  if (!input.value.trim()) { input.focus(); return; }
-  if (normalize(input.value) === normalize(q.correct)) {
-    input.classList.add('correct'); input.classList.remove('wrong');
-    fb.textContent = '✅ ¡Excelente! Escritura correcta.';
+/* =====================================================================
+   VERIFICAR UN DIÁLOGO
+   ===================================================================== */
+function checkDialogue(num) {
+  const d = DIALOGUES[num];
+  let correct = 0;
+  let total = 0;
+
+  d.lines.forEach(line => {
+    line.blanks.forEach(b => {
+      total++;
+      const input = document.getElementById(`d${num}_${b.id}`);
+      if (!input) return;
+      if (normalize(input.value) === normalize(b.answer)) {
+        input.classList.add('correct');
+        input.classList.remove('wrong');
+        correct++;
+      } else {
+        input.classList.add('wrong');
+        input.classList.remove('correct');
+      }
+    });
+  });
+
+  const fb = document.getElementById('fb' + num);
+  const pct = Math.round((correct / total) * 100);
+  if (pct === 100) {
+    fb.textContent = `✅ ¡Excelente! ${correct}/${total} correctas.`;
+    fb.className = 'feedback ok';
+  } else if (pct >= 60) {
+    fb.textContent = `👍 Bien: ${correct}/${total} correctas. Revisa las rojas.`;
     fb.className = 'feedback ok';
   } else {
-    input.classList.add('wrong'); input.classList.remove('correct');
-    fb.innerHTML = `❌ Correcto: <strong>${q.correct}</strong>`;
+    fb.textContent = `❌ ${correct}/${total} correctas. Revisa las respuestas en rojo.`;
     fb.className = 'feedback bad';
   }
 }
 
 /* =====================================================================
-   RENDER ACTIVIDAD 2 — opciones
+   AUDIO DEL DIÁLOGO COMPLETO
    ===================================================================== */
-function renderActividad2() {
-  const c = document.getElementById('actividad2');
-  c.innerHTML = ACTIVIDAD2.map((q, i) => {
-    const options = shuffleArr(q.options);
-    return `
-      <div class="question">
-        <span class="q-num">${i + 1}.</span>
-        <div class="q-prompt">${q.sentence}</div>
-        <div class="options">
-          ${options.map(opt => `
-            <label>
-              <input type="radio" name="a2_${i}" value="${opt.replace(/"/g, '&quot;')}">
-              ${opt}
-            </label>
-          `).join('')}
-        </div>
-      </div>
-    `;
-  }).join('');
+function speakDialogue(num, event) {
+  const d = DIALOGUES[num];
+  speak(d.audio, event.target, 'en-US');
 }
 
 /* =====================================================================
-   RENDER ACTIVIDAD 3 — opciones
-   ===================================================================== */
-function renderActividad3() {
-  const c = document.getElementById('actividad3');
-  c.innerHTML = ACTIVIDAD3.map((q, i) => {
-    const options = shuffleArr(q.options);
-    return `
-      <div class="question">
-        <span class="q-num">${i + 1}.</span>
-        <div class="q-prompt">${q.sentence}</div>
-        <div class="options">
-          ${options.map(opt => `
-            <label>
-              <input type="radio" name="a3_${i}" value="${opt.replace(/"/g, '&quot;')}">
-              ${opt}
-            </label>
-          `).join('')}
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-/* =====================================================================
-   RENDER ACTIVIDAD 4 — ordenar y escribir
-   ===================================================================== */
-function renderActividad4() {
-  const c = document.getElementById('actividad4');
-  c.innerHTML = ACTIVIDAD4.map((q, i) => {
-    const words = shuffleArr(q.words);
-    return `
-      <div class="question">
-        <span class="q-num">${i + 1}.</span>
-        <div class="q-prompt">Palabras: <em>${words.join(' · ')}</em></div>
-        <input type="text" class="write-input" id="a4_input_${i}"
-               placeholder="Escribe la oración ordenada..." autocomplete="off"
-               autocorrect="off" autocapitalize="off" spellcheck="false" translate="no">
-        <button class="check-btn" onclick="checkWriteA4(${i})">✔ Verificar</button>
-        <div class="feedback" id="a4_fb_${i}"></div>
-      </div>
-    `;
-  }).join('');
-}
-
-function checkWriteA4(i) {
-  const q = ACTIVIDAD4[i];
-  const input = document.getElementById(`a4_input_${i}`);
-  const fb = document.getElementById(`a4_fb_${i}`);
-  if (!input.value.trim()) { input.focus(); return; }
-  if (normalize(input.value) === normalize(q.correct)) {
-    input.classList.add('correct'); input.classList.remove('wrong');
-    fb.textContent = '✅ ¡Excelente! Oración correcta.';
-    fb.className = 'feedback ok';
-  } else {
-    input.classList.add('wrong'); input.classList.remove('correct');
-    fb.innerHTML = `❌ Correcto: <strong>${q.correct}</strong>`;
-    fb.className = 'feedback bad';
-  }
-}
-
-/* =====================================================================
-   RENDER ACTIVIDAD 5 — audio + opciones
-   ===================================================================== */
-function renderActividad5() {
-  const c = document.getElementById('actividad5');
-  c.innerHTML = ACTIVIDAD5.map((q, i) => {
-    const options = shuffleArr(q.options);
-    return `
-      <div class="question">
-        <span class="q-num">${i + 1}.</span>
-        <button class="audio-btn" onclick="speak('${q.audio.replace(/'/g, "\\'")}', this)">
-          🔊 Escuchar oración
-        </button>
-        <div class="options">
-          ${options.map(opt => `
-            <label>
-              <input type="radio" name="a5_${i}" value="${opt.replace(/"/g, '&quot;')}">
-              ${opt}
-            </label>
-          `).join('')}
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-/* ============ INIT ============ */
-renderActividad1();
-renderActividad2();
-renderActividad3();
-renderActividad4();
-renderActividad5();
-
-/* =====================================================================
-   RESULTADOS
+   RESULTADOS FINALES
    ===================================================================== */
 function showResults() {
-  let score1 = 0, score2 = 0, score3 = 0, score4 = 0, score5 = 0;
+  let grandCorrect = 0;
+  let grandTotal = 0;
+  const perDialogue = {};
 
-  ACTIVIDAD1.forEach((q, i) => {
-    const sel = document.querySelector(`input[name="a1_${i}"]:checked`);
-    if (sel && normalize(sel.value) === normalize(q.correct)) score1++;
-  });
-  ACTIVIDAD2.forEach((q, i) => {
-    const sel = document.querySelector(`input[name="a2_${i}"]:checked`);
-    if (sel && normalize(sel.value) === normalize(q.correct)) score2++;
-  });
-  ACTIVIDAD3.forEach((q, i) => {
-    const sel = document.querySelector(`input[name="a3_${i}"]:checked`);
-    if (sel && normalize(sel.value) === normalize(q.correct)) score3++;
-  });
-  ACTIVIDAD4.forEach((q, i) => {
-    const inp = document.getElementById(`a4_input_${i}`);
-    if (inp && normalize(inp.value) === normalize(q.correct)) score4++;
-  });
-  ACTIVIDAD5.forEach((q, i) => {
-    const sel = document.querySelector(`input[name="a5_${i}"]:checked`);
-    if (sel && normalize(sel.value) === normalize(q.correct)) score5++;
-  });
+  for (let num = 1; num <= 4; num++) {
+    const d = DIALOGUES[num];
+    let correct = 0, total = 0;
+    d.lines.forEach(line => {
+      line.blanks.forEach(b => {
+        total++;
+        const input = document.getElementById(`d${num}_${b.id}`);
+        if (input && normalize(input.value) === normalize(b.answer)) correct++;
+      });
+    });
+    perDialogue[num] = { correct, total };
+    grandCorrect += correct;
+    grandTotal += total;
+  }
 
-  const total = score1 + score2 + score3 + score4 + score5;
-  const max = 15 * 5;
-  const pct = Math.round((total / max) * 100);
+  const pct = grandTotal > 0 ? Math.round((grandCorrect / grandTotal) * 100) : 0;
 
   let msg = '';
-  if (pct >= 90) msg = '🏆 Outstanding! Dominas el Present Perfect.';
-  else if (pct >= 75) msg = '🌟 Great job! Sigue practicando.';
-  else if (pct >= 60) msg = '👍 Good. Repasa negative & questions.';
-  else msg = '📚 Keep practicing. Repasa el Present Perfect.';
+  if (pct >= 90) msg = '🏆 Outstanding! You have mastered the Present Perfect.';
+  else if (pct >= 75) msg = '🌟 Great job! Keep practicing.';
+  else if (pct >= 60) msg = '👍 Good. Review have/has + past participle.';
+  else msg = '📚 Keep practicing. Review the Present Perfect structure.';
 
   document.getElementById('scoreBox').innerHTML = `
-    <div class="score-item"><span>✍️ Actividad 1 (Yes/No Questions)</span><span>${score1} / 15</span></div>
-    <div class="score-item"><span>✍️ Actividad 2 (Negative/Interrogative)</span><span>${score2} / 15</span></div>
-    <div class="score-item"><span>🔤 Actividad 3 (Ever/Never/Yet/Already/Just)</span><span>${score3} / 15</span></div>
-    <div class="score-item"><span>🧩 Actividad 4 (Order the words)</span><span>${score4} / 15</span></div>
-    <div class="score-item"><span>🎧 Actividad 5 (Listening)</span><span>${score5} / 15</span></div>
-    <div class="score-item"><span>TOTAL</span><span>${total} / ${max} (${pct}%)</span></div>
+    <div class="score-item"><span>💬 Diálogo 1 (A & B)</span><span>${perDialogue[1].correct} / ${perDialogue[1].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 2 (A & B)</span><span>${perDialogue[2].correct} / ${perDialogue[2].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 3 (A, B & C)</span><span>${perDialogue[3].correct} / ${perDialogue[3].total}</span></div>
+    <div class="score-item"><span>💬 Diálogo 4 (A, B & C)</span><span>${perDialogue[4].correct} / ${perDialogue[4].total}</span></div>
+    <div class="score-item"><span>TOTAL</span><span>${grandCorrect} / ${grandTotal} (${pct}%)</span></div>
     <div class="feedback-final">${msg}</div>
     <p style="margin-top:12px; color:#718096; font-size:0.9rem; text-align:center;">
       ⚠️ Recuerda: reúnanse en parejas o equipos, escriban UNO de los diálogos en el cuaderno con tinta azul y practíquenlo en voz alta.
@@ -799,6 +666,12 @@ function showResults() {
   document.getElementById('resultsScreen').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* ============ INIT ============ */
+renderDialogue(1);
+renderDialogue(2);
+renderDialogue(3);
+renderDialogue(4);
 
 /* ============ PREVENIR TRADUCCIÓN ============ */
 document.documentElement.setAttribute('translate', 'no');
